@@ -958,7 +958,7 @@ def test_slots_cached_property_direct():
     """
     Test getting the wrapped cached property directly
     """
-    from attr._make import _SlottedCachedProperty
+    from attr._make import _AbstractSlottedCachedProperty
 
     @attr.s(slots=True)
     class Parent:
@@ -966,7 +966,7 @@ def test_slots_cached_property_direct():
         def name(self) -> str:
             return "Alice"
 
-    assert isinstance(Parent.name, _SlottedCachedProperty)
+    assert isinstance(Parent.name, _AbstractSlottedCachedProperty)
 
 
 def test_slots_cached_property_set_delete():

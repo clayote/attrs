@@ -16,6 +16,7 @@ import weakref
 
 from collections.abc import Callable, Mapping
 from functools import cached_property
+from textwrap import indent
 from typing import Any, NamedTuple, TypeVar
 
 # We need to import _compat itself in addition to the _compat members to avoid
@@ -496,7 +497,7 @@ def _transform_attrs(
     return _Attributes(AttrsClass(attrs), base_attrs, base_attr_map)
 
 
-class _SlottedCachedProperty:
+class _AbstractSlottedCachedProperty(abc.ABC):
     """
     This is a class that is used to wrap both a slot and a cached property.
     *It is not to be used directly.*
@@ -507,36 +508,47 @@ class _SlottedCachedProperty:
     replace those slot descriptors with instances of this class
     """
 
-    def __init__(self, slot, func):
-        self.slot = slot
-        self.func = func
-        self.__doc__ = self.func.__doc__
-        self.__module__ = self.func.__module__
-
-        self._slotget = slot.__get__
-        self._slotset = slot.__set__
-        self._slotdelete = slot.__delete__
-
-    def __get__(self, instance, owner=None):
-        if instance is None:
-            return self
-
-        try:
-            return self._slotget(instance, owner)
-        except AttributeError:
-            pass
-
-        result = self.func(instance)
-
-        self._slotset(instance, result)
-
-        return result
-
-    def __set__(self, obj, value):
-        self._slotset(obj, value)
-
-    def __delete__(self, obj):
-        self._slotdelete(obj)
+def _slotted_cached_property(cls, slot, func):
+    doclines = []
+    if func.__doc__:
+        doclines = indent(func.__doc__, "    ").splitlines()
+        doclines[0] = '    """' + doclines[0][4:]
+        if len(doclines) == 1:
+            doclines[0] = doclines[0] + '"""'
+        else:
+            if doclines[-1]:
+                doclines.append("")
+            doclines.append('    """')
+    lines = [
+        f"class _{func.__name__}_SlottedCachedProperty(_AbstractSlottedCachedProperty):",
+        *doclines,
+        "    __module__ = func.__module__",
+        "    __name__ = func.__name__",
+        "    __qualname__ = func.__qualname__",
+        "    __annotations__ = func.__annotations__",
+        "    __type_params__ = func.__type_params__",
+        "    __slots__ = ('slot',)",
+        "    def __init__(self):",
+        "        self.slot = slot",
+        "    def __get__(self, instance, owner=None):",
+        "        if instance is None:",
+        "            return self",
+        "        try:",
+        "            return slotget(instance, owner)",
+        "        except AttributeError:",
+        "            pass",
+        "        result = func(instance)",
+        "        slotset(instance, result)",
+        "        return result",
+        "    def __set__(self, obj, value):",
+        "        slotset(obj, value)",
+        "    def __delete__(self, obj):",
+        "        slotdelete(obj)",
+    ]
+    glob = {"func": func, "slot": slot, "slotget": slot.__get__, "slotset": slot.__set__,
+            "slotdelete": slot.__delete__, "_AbstractSlottedCachedProperty": _AbstractSlottedCachedProperty}
+    _compile_and_eval("\n".join(lines), glob, filename=_generate_unique_filename(cls, func))
+    return glob[f"_{func.__name__}_SlottedCachedProperty"]()
 
 
 def _frozen_setattrs(self, name, value):
@@ -943,9 +955,9 @@ class _ClassBuilder:
         # Now add back the wrapped cached properties
         for name, func in cached_properties.items():
             slot = getattr(cls, name)
-            if isinstance(slot, _SlottedCachedProperty):
+            if isinstance(slot, _AbstractSlottedCachedProperty):
                 slot = slot.slot
-            slotted_property = _SlottedCachedProperty(slot, func)
+            slotted_property = _slotted_cached_property(cls, slot, func)
             setattr(cls, name, slotted_property)
 
         # The following is a fix for
