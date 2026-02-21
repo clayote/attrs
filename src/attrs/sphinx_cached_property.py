@@ -1,5 +1,6 @@
+# SPDX-License-Identifier: MIT
+
 from sphinx.application import Sphinx
-from types import MemberDescriptorType
 
 
 def get_cached_property_for_member_descriptor(cls: type, name: str, default=None):
