@@ -1,6 +1,7 @@
 # SPDX-License-Identifier: MIT
 
 import os
+import sys
 
 from importlib import metadata
 from pathlib import Path
@@ -59,6 +60,7 @@ extensions = [
     "sphinx.ext.todo",
     "notfound.extension",
     "sphinxcontrib.towncrier",
+    "attrs.sphinx_cached_property",
 ]
 
 myst_enable_extensions = [
