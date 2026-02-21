@@ -2,7 +2,7 @@
 
 import os
 import sys
-sys.path.append(os.path.join(os.path.dirname(__file__), "_ext"))
+sys.path.append(os.path.join(os.path.dirname(__file__), "ext"))
 
 from importlib import metadata
 from pathlib import Path
