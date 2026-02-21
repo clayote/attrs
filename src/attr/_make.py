@@ -931,9 +931,12 @@ class _ClassBuilder:
                 additional_closure_functions_to_update.append(original_getattr)
 
             cd["__getattr__"] = _make_cached_property_getattr(
-                {name: prop.func for (name, prop) in cached_properties.items()},
+                {
+                    name: prop.func
+                    for (name, prop) in cached_properties.items()
+                },
                 original_getattr,
-                self._cls
+                self._cls,
             )
 
         # We only add the names of attributes that aren't inherited.
