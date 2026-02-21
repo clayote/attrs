@@ -60,7 +60,7 @@ extensions = [
     "sphinx.ext.todo",
     "notfound.extension",
     "sphinxcontrib.towncrier",
-    "sphinx_cached_property",
+    "attrs.sphinx_cached_property",
 ]
 
 myst_enable_extensions = [
