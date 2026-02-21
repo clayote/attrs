@@ -764,8 +764,8 @@ def test_sphinx_autodocuments_cached_property():
         )
         app.build(force_all=True)
         with (
-            open(tmp_path.joinpath("index.txt")) as written,
-            open(Path(__file__).parent.joinpath("index.txt")) as good,
+            tmp_path.joinpath("index.txt").open() as written,
+            Path(__file__).parent.joinpath("index.txt").open() as good,
         ):
             assert written.read() == good.read()
 
