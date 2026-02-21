@@ -8,10 +8,14 @@ import functools
 import pickle
 import weakref
 from pathlib import Path
-
+from tempfile import TemporaryDirectory
 from unittest import mock
 
 import pytest
+try:
+    from sphinx.application import Sphinx
+except ImportError:
+    Sphinx = None
 
 import attr
 import attrs
@@ -745,10 +749,9 @@ class SphinxDocTest:
         """A very well documented function"""
         return True
 
+
+@pytest.mark.skipif(Sphinx is None, reason="Sphinx is not installed")
 def test_sphinx_autodocuments_cached_property():
-    from tempfile import TemporaryDirectory
-    from sphinx.builders.text import TextBuilder
-    from sphinx.application import Sphinx
     here = Path(__file__).parent
     with TemporaryDirectory() as td:
         tmp_path = Path(td)
