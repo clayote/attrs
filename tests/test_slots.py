@@ -7,14 +7,15 @@ Unit tests for slots-related functionality.
 import functools
 import pickle
 import weakref
-from itertools import zip_longest
 
+from itertools import zip_longest
 from pathlib import Path
 from tempfile import TemporaryDirectory
 from unittest import mock
 
 import hypothesis.strategies as st
 import pytest
+
 from hypothesis import given
 
 from attr._make import _TupleProxy
