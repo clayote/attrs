@@ -73,6 +73,8 @@ source = { editable = "." }
 [package.dev-dependencies]
 benchmark = [
     { name = "cloudpickle", marker = "platform_python_implementation == 'CPython'" },
+    { name = "cogapp" },
+    { name = "furo" },
     { name = "hypothesis", version = "6.141.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.10'" },
     { name = "hypothesis", version = "6.151.9", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.10'" },
     { name = "myst-parser", version = "3.0.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.10'" },
@@ -88,11 +90,15 @@ benchmark = [
     { name = "sphinx", version = "9.0.4", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version == '3.11.*'" },
     { name = "sphinx", version = "9.1.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.12'" },
     { name = "sphinx-notfound-page" },
+    { name = "sphinxcontrib-towncrier" },
+    { name = "towncrier" },
 ]
 cov = [
     { name = "cloudpickle", marker = "platform_python_implementation == 'CPython'" },
+    { name = "cogapp" },
     { name = "coverage", version = "7.10.7", source = { registry = "https://pypi.org/simple" }, extra = ["toml"], marker = "python_full_version < '3.10'" },
     { name = "coverage", version = "7.13.4", source = { registry = "https://pypi.org/simple" }, extra = ["toml"], marker = "python_full_version >= '3.10'" },
+    { name = "furo" },
     { name = "hypothesis", version = "6.141.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.10'" },
     { name = "hypothesis", version = "6.151.9", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.10'" },
     { name = "myst-parser", version = "3.0.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.10'" },
@@ -107,9 +113,13 @@ cov = [
     { name = "sphinx", version = "9.0.4", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version == '3.11.*'" },
     { name = "sphinx", version = "9.1.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.12'" },
     { name = "sphinx-notfound-page" },
+    { name = "sphinxcontrib-towncrier" },
+    { name = "towncrier" },
 ]
 dev = [
     { name = "cloudpickle", marker = "platform_python_implementation == 'CPython'" },
+    { name = "cogapp" },
+    { name = "furo" },
     { name = "hypothesis", version = "6.141.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.10'" },
     { name = "hypothesis", version = "6.151.9", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.10'" },
     { name = "myst-parser", version = "3.0.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.10'" },
@@ -125,6 +135,8 @@ dev = [
     { name = "sphinx", version = "9.0.4", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version == '3.11.*'" },
     { name = "sphinx", version = "9.1.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.12'" },
     { name = "sphinx-notfound-page" },
+    { name = "sphinxcontrib-towncrier" },
+    { name = "towncrier" },
 ]
 docs = [
     { name = "cogapp" },
@@ -157,6 +169,8 @@ docs-watch = [
 ]
 mypy = [
     { name = "cloudpickle", marker = "platform_python_implementation == 'CPython'" },
+    { name = "cogapp" },
+    { name = "furo" },
     { name = "hypothesis", version = "6.141.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.10'" },
     { name = "hypothesis", version = "6.151.9", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.10'" },
     { name = "myst-parser", version = "3.0.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.10'" },
@@ -172,9 +186,13 @@ mypy = [
     { name = "sphinx", version = "9.0.4", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version == '3.11.*'" },
     { name = "sphinx", version = "9.1.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.12'" },
     { name = "sphinx-notfound-page" },
+    { name = "sphinxcontrib-towncrier" },
+    { name = "towncrier" },
 ]
 pyrefly = [
     { name = "cloudpickle", marker = "platform_python_implementation == 'CPython'" },
+    { name = "cogapp" },
+    { name = "furo" },
     { name = "hypothesis", version = "6.141.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.10'" },
     { name = "hypothesis", version = "6.151.9", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.10'" },
     { name = "myst-parser", version = "3.0.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.10'" },
@@ -190,9 +208,13 @@ pyrefly = [
     { name = "sphinx", version = "9.0.4", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version == '3.11.*'" },
     { name = "sphinx", version = "9.1.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.12'" },
     { name = "sphinx-notfound-page" },
+    { name = "sphinxcontrib-towncrier" },
+    { name = "towncrier" },
 ]
 pyright = [
     { name = "cloudpickle", marker = "platform_python_implementation == 'CPython'" },
+    { name = "cogapp" },
+    { name = "furo" },
     { name = "hypothesis", version = "6.141.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.10'" },
     { name = "hypothesis", version = "6.151.9", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.10'" },
     { name = "myst-parser", version = "3.0.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.10'" },
@@ -208,9 +230,13 @@ pyright = [
     { name = "sphinx", version = "9.0.4", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version == '3.11.*'" },
     { name = "sphinx", version = "9.1.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.12'" },
     { name = "sphinx-notfound-page" },
+    { name = "sphinxcontrib-towncrier" },
+    { name = "towncrier" },
 ]
 tests = [
     { name = "cloudpickle", marker = "platform_python_implementation == 'CPython'" },
+    { name = "cogapp" },
+    { name = "furo" },
     { name = "hypothesis", version = "6.141.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.10'" },
     { name = "hypothesis", version = "6.151.9", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.10'" },
     { name = "myst-parser", version = "3.0.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.10'" },
@@ -225,9 +251,13 @@ tests = [
     { name = "sphinx", version = "9.0.4", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version == '3.11.*'" },
     { name = "sphinx", version = "9.1.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.12'" },
     { name = "sphinx-notfound-page" },
+    { name = "sphinxcontrib-towncrier" },
+    { name = "towncrier" },
 ]
 ty = [
     { name = "cloudpickle", marker = "platform_python_implementation == 'CPython'" },
+    { name = "cogapp" },
+    { name = "furo" },
     { name = "hypothesis", version = "6.141.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.10'" },
     { name = "hypothesis", version = "6.151.9", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.10'" },
     { name = "myst-parser", version = "3.0.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.10'" },
@@ -242,6 +272,8 @@ ty = [
     { name = "sphinx", version = "9.0.4", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version == '3.11.*'" },
     { name = "sphinx", version = "9.1.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.12'" },
     { name = "sphinx-notfound-page" },
+    { name = "sphinxcontrib-towncrier" },
+    { name = "towncrier" },
     { name = "ty" },
 ]
 
@@ -250,6 +282,8 @@ ty = [
 [package.metadata.requires-dev]
 benchmark = [
     { name = "cloudpickle", marker = "platform_python_implementation == 'CPython'" },
+    { name = "cogapp" },
+    { name = "furo" },
     { name = "hypothesis" },
     { name = "myst-parser" },
     { name = "pympler" },
@@ -258,10 +292,14 @@ benchmark = [
     { name = "pytest-xdist", extras = ["psutil"] },
     { name = "sphinx" },
     { name = "sphinx-notfound-page" },
+    { name = "sphinxcontrib-towncrier" },
+    { name = "towncrier" },
 ]
 cov = [
     { name = "cloudpickle", marker = "platform_python_implementation == 'CPython'" },
+    { name = "cogapp" },
     { name = "coverage", extras = ["toml"] },
+    { name = "furo" },
     { name = "hypothesis" },
     { name = "myst-parser" },
     { name = "pympler" },
@@ -269,9 +307,13 @@ cov = [
     { name = "pytest-xdist", extras = ["psutil"] },
     { name = "sphinx" },
     { name = "sphinx-notfound-page" },
+    { name = "sphinxcontrib-towncrier" },
+    { name = "towncrier" },
 ]
 dev = [
     { name = "cloudpickle", marker = "platform_python_implementation == 'CPython'" },
+    { name = "cogapp" },
+    { name = "furo" },
     { name = "hypothesis" },
     { name = "myst-parser" },
     { name = "pympler" },
@@ -280,6 +322,8 @@ dev = [
     { name = "ruff" },
     { name = "sphinx" },
     { name = "sphinx-notfound-page" },
+    { name = "sphinxcontrib-towncrier" },
+    { name = "towncrier" },
 ]
 docs = [
     { name = "cogapp" },
@@ -302,6 +346,8 @@ docs-watch = [
 ]
 mypy = [
     { name = "cloudpickle", marker = "platform_python_implementation == 'CPython'" },
+    { name = "cogapp" },
+    { name = "furo" },
     { name = "hypothesis" },
     { name = "myst-parser" },
     { name = "pympler" },
@@ -310,9 +356,13 @@ mypy = [
     { name = "pytest-xdist", extras = ["psutil"] },
     { name = "sphinx" },
     { name = "sphinx-notfound-page" },
+    { name = "sphinxcontrib-towncrier" },
+    { name = "towncrier" },
 ]
 pyrefly = [
     { name = "cloudpickle", marker = "platform_python_implementation == 'CPython'" },
+    { name = "cogapp" },
+    { name = "furo" },
     { name = "hypothesis" },
     { name = "myst-parser" },
     { name = "pympler" },
@@ -321,9 +371,13 @@ pyrefly = [
     { name = "pytest-xdist", extras = ["psutil"] },
     { name = "sphinx" },
     { name = "sphinx-notfound-page" },
+    { name = "sphinxcontrib-towncrier" },
+    { name = "towncrier" },
 ]
 pyright = [
     { name = "cloudpickle", marker = "platform_python_implementation == 'CPython'" },
+    { name = "cogapp" },
+    { name = "furo" },
     { name = "hypothesis" },
     { name = "myst-parser" },
     { name = "pympler" },
@@ -332,9 +386,13 @@ pyright = [
     { name = "pytest-xdist", extras = ["psutil"] },
     { name = "sphinx" },
     { name = "sphinx-notfound-page" },
+    { name = "sphinxcontrib-towncrier" },
+    { name = "towncrier" },
 ]
 tests = [
     { name = "cloudpickle", marker = "platform_python_implementation == 'CPython'" },
+    { name = "cogapp" },
+    { name = "furo" },
     { name = "hypothesis" },
     { name = "myst-parser" },
     { name = "pympler" },
@@ -342,9 +400,13 @@ tests = [
     { name = "pytest-xdist", extras = ["psutil"] },
     { name = "sphinx" },
     { name = "sphinx-notfound-page" },
+    { name = "sphinxcontrib-towncrier" },
+    { name = "towncrier" },
 ]
 ty = [
     { name = "cloudpickle", marker = "platform_python_implementation == 'CPython'" },
+    { name = "cogapp" },
+    { name = "furo" },
     { name = "hypothesis" },
     { name = "myst-parser" },
     { name = "pympler" },
@@ -352,6 +414,8 @@ ty = [
     { name = "pytest-xdist", extras = ["psutil"] },
     { name = "sphinx" },
     { name = "sphinx-notfound-page" },
+    { name = "sphinxcontrib-towncrier" },
+    { name = "towncrier" },
     { name = "ty" },
 ]
 
@@ -936,7 +1000,7 @@ name = "exceptiongroup"
 version = "1.3.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "typing-extensions", marker = "python_full_version < '3.13'" },
+    { name = "typing-extensions", marker = "python_full_version < '3.11'" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/50/79/66800aadf48771f6b62f7eb014e352e5d06856655206165d775e675a02c9/exceptiongroup-1.3.1.tar.gz", hash = "sha256:8b412432c6055b0b7d14c310000ae93352ed6754f70fa8f7c34141f91c4e3219", size = 30371, upload-time = "2025-11-21T23:01:54.787Z" }
 wheels = [
