@@ -7,11 +7,19 @@ Unit tests for slots-related functionality.
 import functools
 import pickle
 import weakref
+from itertools import zip_longest
+
 from pathlib import Path
 from tempfile import TemporaryDirectory
 from unittest import mock
 
+import hypothesis.strategies as st
 import pytest
+from hypothesis import given
+
+from attr._make import _TupleProxy
+
+
 try:
     from sphinx.application import Sphinx
 except ImportError:
@@ -749,7 +757,7 @@ def test_tuple_proxy(t):
     It's not a tuple for the purposes of :func:`isinstance` and that's about it
     """
     prox = _TupleProxy(t)
-    assert(len(t) == len(prox))
+    assert len(t) == len(prox)
     for a, b in zip_longest(t, prox):
         assert a is b
     for i in range(len(prox)):
