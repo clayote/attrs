@@ -740,6 +740,23 @@ def test_slots_super_property_get_shortcut():
     assert B(11).f == 121
     assert B(17).f == 289
 
+
+@given(st.tuples())
+def test_tuple_proxy(t):
+    """
+    The `_TupleProxy` class acts just like a normal tuple, but isn't one
+
+    It's not a tuple for the purposes of :func:`isinstance` and that's about it
+    """
+    prox = _TupleProxy(t)
+    assert(len(t) == len(prox))
+    for a, b in zip_longest(t, prox):
+        assert a is b
+    for i in range(len(prox)):
+        assert t[i] is prox[i]
+    assert not isinstance(prox, tuple)
+
+
 @attr.s(slots=True)
 class SphinxDocTest:
     """Test that slotted cached_property shows up in Sphinx docs"""
