@@ -106,11 +106,12 @@ class _CacheHashWrapper(int):
 class _TupleProxy(Sequence):
     __slots__ = ("_tup",)
     """A wrapper for a tuple that makes it not type-check as a tuple
-    
+
     This is a hack to make Sphinx document all cached properties on slots
     classes as if they were regular properties.
-    
+
     """
+
     def __init__(self, tup: tuple):
         self._tup = tup
 
@@ -958,9 +959,12 @@ class _ClassBuilder:
                 additional_closure_functions_to_update.append(original_getattr)
 
             cd["__getattr__"] = _make_cached_property_getattr(
-                {name: prop.func for (name, prop) in cached_properties.items()},
+                {
+                    name: prop.func
+                    for (name, prop) in cached_properties.items()
+                },
                 original_getattr,
-                self._cls
+                self._cls,
             )
 
         # We only add the names of attributes that aren't inherited.

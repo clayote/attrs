@@ -778,7 +778,10 @@ class SphinxDocTest:
         return True
 
 
-need_sphinx = pytest.mark.skipif(Sphinx is None, reason="Sphinx is not installed")
+need_sphinx = pytest.mark.skipif(
+    Sphinx is None, reason="Sphinx is not installed"
+)
+
 
 @need_sphinx
 def test_sphinx_autodocuments_cached_property():
@@ -795,7 +798,9 @@ def test_sphinx_autodocuments_cached_property():
                 outf.write(line)
         outdir = tmp_path.joinpath("docs")
         outdir.mkdir()
-        app = Sphinx(tmp_path, here.parent.joinpath("docs"), outdir, tmp_path, "text")
+        app = Sphinx(
+            tmp_path, here.parent.joinpath("docs"), outdir, tmp_path, "text"
+        )
         app.build(force_all=True)
         with (
             outdir.joinpath("index.txt").open("r") as written,
@@ -819,11 +824,13 @@ def test_sphinx_automembers_cached_property():
                 outf.write(line)
         outdir = tmp_path.joinpath("docs")
         outdir.mkdir()
-        app = Sphinx(tmp_path, here.parent.joinpath("docs"), outdir, tmp_path, "text")
+        app = Sphinx(
+            tmp_path, here.parent.joinpath("docs"), outdir, tmp_path, "text"
+        )
         app.build(force_all=True)
         with (
             outdir.joinpath("index.txt").open("r") as written,
-            here.joinpath("index.txt").open("r") as good
+            here.joinpath("index.txt").open("r") as good,
         ):
             assert written.read() == good.read()
 
