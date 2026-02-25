@@ -110,6 +110,7 @@ class _TupleProxy(Sequence):
     classes as if they were regular properties.
 
     """
+
     __slots__ = ("_tup",)
 
     def __init__(self, tup: tuple):
