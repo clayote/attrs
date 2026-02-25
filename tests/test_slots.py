@@ -10,7 +10,6 @@ import weakref
 
 from itertools import zip_longest
 from pathlib import Path
-from tempfile import TemporaryDirectory
 from unittest import mock
 
 import hypothesis.strategies as st
