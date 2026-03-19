@@ -938,6 +938,7 @@ class _ClassBuilder:
             cd["__getattr__"] = _make_cached_property_getattr(
                 cached_properties, original_getattr, self._cls
             )
+        cd["__attrs_cached_properties__"] = cached_properties
 
         # We only add the names of attributes that aren't inherited.
         # Setting __slots__ to inherited attributes wastes memory.
